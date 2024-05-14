@@ -5,6 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerSpec = require('./config/swagger');
 require('dotenv').config();
 
@@ -19,7 +20,7 @@ mongoose.connect(config.mongodb.uri, { useNewUrlParser: true, useUnifiedTopology
 app.use(express.json());
 
 // Serve Swagger UI
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 // Routes
 app.use('/auth', authRoutes); // Authentication routes
@@ -31,6 +32,9 @@ app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).send('Something went wrong!');
 });
+
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // To start the server
 const PORT = process.env.PORT || 8080;

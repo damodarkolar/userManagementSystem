@@ -1,17 +1,19 @@
-// config/swagger.js
-
 const swaggerJsdoc = require('swagger-jsdoc');
+require('dotenv').config();
 
 const options = {
   definition: {
     openapi: '3.0.0',
-    info: {
-      title: 'Your API Documentation',
-      version: '1.0.0',
-      description: 'API documentation generated with Swagger',
+    info:{
+      title : "User management System"
     },
+    servers : [
+      {
+        url : process.env.BASE_URL || "http://localhost:8080/"
+      },
+    ],
   },
-  apis: ['./routes/*.js'], // Path to the API routes
+  apis: ['./routes/*.js'], 
 };
 
 const swaggerSpec = swaggerJsdoc(options);
