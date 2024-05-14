@@ -15,6 +15,19 @@ Endpoint: `POST /auth/register`
 
 Registers a new user with the system.
 
+### Login User
+
+Endpoint: `POST /auth/login`
+
+Login a registred user.
+
+### Log Out User
+
+Endpoint: `POST /auth/login`
+
+Logout logged user .
+
+
 ...
 
 ## Profile Management
@@ -25,6 +38,24 @@ Endpoint: `GET /profile/{userId}`
 
 Retrieves the profile details of a specific user.
 
+### Get All Public users Profile
+
+Endpoint: `GET /{userId}/getAllPublicProfiles`
+
+Retrieves the profile details of public Users.
+
+### Update the user Profile
+
+Endpoint: `PUT /{userId}/update`
+
+To update the login users.
+
+### Toggle privacy user Profile
+
+Endpoint: `PUT /{userId}/privacy`
+
+To toggle the public access .
+
 ...
 
 ## Administrative Functions
@@ -34,6 +65,12 @@ Retrieves the profile details of a specific user.
 Endpoint: `GET /admin/users`
 
 Retrieves the profiles of all users.
+
+### Get Single User (Admin Only)
+
+Endpoint: `GET /admin/{userId}/profile`
+
+Retrieves the profiles single users.
 
 ...
 
