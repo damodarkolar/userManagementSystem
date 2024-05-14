@@ -13,8 +13,8 @@ const loginUser = async (req, res) => {
     console.log(req.body)
     try {
         const { email, password } = req.body;
-        const token = await authService.loginUser(email, password);
-        res.json({ token });
+        const {token, userId} = await authService.loginUser(email, password); 
+        res.json({ token, userId });
     } catch (error) {
         res.status(401).json({ error: error.message }); 
     }
