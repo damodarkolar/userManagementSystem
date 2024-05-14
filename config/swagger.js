@@ -3,15 +3,25 @@ require('dotenv').config();
 
 const options = {
   definition: {
-    openapi: '3.0.0',
-    info:{
-      title : "User management System"
+    openapi: '3.0.0', 
+    info: {
+      title: "User Management System", 
+      version: '1.0.0', 
+      description: 'API for managing users and profiles', 
     },
-    servers : [
+    servers: [
       {
-        url : process.env.BASE_URL || "http://localhost:8080/"
+        url: process.env.BASE_URL || "http://localhost:8080/", 
       },
     ],
+    securityDefinitions: {
+      BearerAuth: { 
+        type: 'apiKey', 
+        name: 'Authorization', 
+        scheme: 'bearer', 
+        in: 'header', 
+      },
+    },
   },
   apis: ['./routes/*.js'], 
 };

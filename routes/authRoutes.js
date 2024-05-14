@@ -9,7 +9,20 @@
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               name:
+ *                 type: string
+ *               photo:
+ *                 type: string
+ *               bio:
+ *                 type: string
+ *               phoneNumber:
+ *                 type: string
  *     responses:
  *       201:
  *         description: User registered successfully
